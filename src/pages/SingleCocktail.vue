@@ -1,42 +1,51 @@
 <template lang="">
-    <div>
-        
-        <img :src="cocktail_image" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ title }}</h5>
-            <p>
-                {{ description }}
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-    
-    
+    <main class="container">
+        <section class="row justify-content-center">
+            <!-- <h1>
+                Single cocktail: {{ $route.params.id }}
+            </h1> -->
+            <OneCocktail class="p-0 col-12 mx-4 my-5" :title="cocktail.title" :image="cocktail.cocktail_image" :description="cocktail.description" :fullLength="true"
+            />
+        </section>
+    </main>
 </template>
 <script>
-export default {
-    data(){
-        return {
+import OneCocktail from '@/components/OneCocktail.vue';
+import axios from 'axios';
 
+export default {
+    name: 'cocktailList',
+    data(){
+        return{
+            cocktail: {},
+            id: ''
         }
     },
-    props:{
-       title:{
-            required: true,
-            type: String
-        },
-       cocktail_image:{
-            required: true,
-            type: Text
-        },
-        description:{
-            required: true,
-            type: Text
-        },   
+    methods:{
+        getCocktail(){
+            axios.get(`http://127.0.0.1:8000/api/cocktails/${this.$route.params.id}`, {
+                params: {
+                }
+            })
+            .then((response) => {
+                console.log(response.data.results);
+                this.cocktail = response.data.results;
+
+            })
+            .catch(function (error) {
+                console.warn(error);
+                // this.$router.push({ name: 'not-found' })
+            })
+        }
+    },
+    components:{
+        OneCocktail
+    },
+
+    created(){
+        this.getCocktail();
     }
-    
 }
 </script>
-<style lang="">
-    
+<style lang="scss">
 </style>
