@@ -38,6 +38,10 @@ export default {
                     label: 'Chi Siamo',
                     routerName: 'chi-siamo'
                 },
+                {
+                    label: 'Contatti',
+                    routerName: 'contatti'
+                },
 
             ]
 
