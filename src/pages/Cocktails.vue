@@ -3,35 +3,35 @@
         <section class="row justify-content-center">
             <div class="col-12">
                 <h1 class="pt-5 pb-3">
-                    Projects vue router:
+                    Cocktails:
                 </h1>
             </div>
-            <SingleCard class="card p-0 col-3 mx-4 my-5" v-for="project in projects" :key="project"
-                :title="project.title" :image="project.project_image" :linkRoute="{ name: 'single-project', params: { id: project }}" linkLabel="Read more..."
+            <SingleCocktail class="card p-0 col-3 mx-4 my-5" v-for="cocktail in cocktails" :key="cocktail"
+                :title="cocktail.title" :cocktail_image="cocktail.cocktail_image" :description="cocktail.description" :linkRoute="{ name: 'single-cocktail', params: { id: cocktail }}" linkLabel="Read more..."
             />
         </section>
     </main>
 </template>
 <script>
-import SingleCard from '@/components/SingleCard.vue';
+import SingleCocktail from '@/pages/SingleCocktail.vue';
 import axios from 'axios';
 
 export default {
-    name: 'ProjectList',
+    name: 'Cocktails',
     data(){
         return{
-            projects: [],
+            cocktails: [],
         }
     },
     methods:{
-        getProjects(){
-            axios.get('http://127.0.0.1:8000/api/projects', {
+        getCocktails(){
+            axios.get('http://127.0.0.1:8000/api/cocktails', {
                 params: {
                 }
             })
             .then((response) => {
-                console.log(response.data.results);
-                this.projects = response.data.results;
+                console.log(response.data.results.data);
+                this.cocktails = response.data.results.data;
 
             })
             .catch(function (error) {
@@ -41,11 +41,11 @@ export default {
         }
     },
     components:{
-        SingleCard
+        SingleCocktail
     },
 
     created(){
-        this.getProjects();
+        this.getCocktails();
     }
 }
 </script>

@@ -1,34 +1,41 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import HomePage from './pages/HomePage.vue';
-import ProjectList from './pages/ProjectList.vue';
-import SingleProject from './pages/SingleProject.vue';
-import TypesList from './pages/TypesList.vue';
+import HomePage from './components/HomePage.vue';
+import ChiSiamo from './pages/ChiSiamo.vue';
+import Cocktails from './pages/Cocktails.vue';
+import SingleCocktail from './pages/SingleCocktail.vue';
+
+
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
             path: '/',
-            name: 'home',
+            name: 'homepage',
             component: HomePage
         },
         {
-            path: '/projects',
-            name: 'projects',
-            component: ProjectList
+            path: '/cocktails',
+            name: 'cocktails',
+            component: Cocktails
         },
         {
-            path: '/projects/:id',
-            name: 'single-project',
-            component: SingleProject
+            path: '/single-cocktail',
+            name: 'single-cocktails',
+            component: SingleCocktail
         },
+
+
         {
-            path: '/types',
-            name: 'types',
-            component: TypesList
+            path: '/chi-siamo',
+            name: 'chi-siamo',
+            component: ChiSiamo
         },
+
+       
     ]
+       
 });
 
 export { router }
