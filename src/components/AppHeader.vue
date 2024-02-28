@@ -13,10 +13,6 @@
                                 {{ link.label }}
                             </router-link>
                         </li> 
-                       
-                       
-                        
-                        
                     </ul>
                 </div>
             </div>
@@ -26,6 +22,7 @@
 </template>
 <script>
 export default {
+    name: 'AppHeader',
     data(){
         return {
             linkItems: [
@@ -50,6 +47,6 @@ export default {
     
 }
 </script>
-<style lang="">
+<style lang="scss" scoped>
     
 </style>
