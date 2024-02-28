@@ -4,35 +4,10 @@
             <div class="col 12">
                 <h1 class="my-5">I nostri contatti</h1>
                 <ul>
-                    <li class="mb-5">
-                        Nome: Giovanni Rossi -
-                        Numero di telefono: 333-1234567 -
-                        Indirizzo email: giovanni.rossi@email.com
-                    </li>
-                    <li class="mb-5">
-                        Nome: Maria Bianchi -
-                        Numero di telefono: 333-7654321 -
-                        Indirizzo email: maria.bianchi@email.com
-                    </li>
-                    <li class="mb-5">
-                        Nome: Luca Verdi -
-                        Numero di telefono: 333-9876543 -
-                        Indirizzo email: luca.verdi@email.com
-                    </li>
-                    <li class="mb-5">
-                        Nome: Chiara Russo -
-                        Numero di telefono: 333-2468101 -
-                        Indirizzo email: chiara.russo@email.com
-                    </li>
-                    <li class="mb-5">
-                        Nome: Marco Gialli -
-                        Numero di telefono: 333-1122334 -
-                        Indirizzo email: marco.gialli@email.com
-                    </li>
-                    <li class="mb-5">
-                        Nome: Sara Neri -
-                        Numero di telefono: 333-5566778 -
-                        Indirizzo email: sara.neri@email.com
+                    <li v-for="(singleContact, index) in contactLinks" :key="index" class="mb-5">
+                        Nome: {{singleContact.name}} -
+                        Numero di telefono: {{singleContact.telephoneNumber}} -
+                        Indirizzo email: {{singleContact.emailAdress}}
                     </li>
                 </ul>
             </div>
@@ -41,7 +16,42 @@
 </template>
 <script>
 export default {
-    
+    data() {
+        return {
+            contactLinks: [
+                {
+                    name: 'Giovanni Rossi',
+                    telephoneNumber: '333-1234567',
+                    emailAdress: 'giovanni.rossi@email.com'
+                },
+                {
+                    name: 'Maria Bianchi',
+                    telephoneNumber: '333-7654321',
+                    emailAdress: 'maria.bianchi@email.com'
+                },
+                {
+                    name: 'Luca Verdi',
+                    telephoneNumber: '333-9876543',
+                    emailAdress: 'luca.verdi@email.com'
+                },
+                {
+                    name: 'Chiara Russo',
+                    telephoneNumber: '333-2468101',
+                    emailAdress: 'chiara.russo@email.com'
+                },
+                {
+                    name: 'Marco Gialli',
+                    telephoneNumber: '333-1122334',
+                    emailAdress: 'giovanni.rossi@email.com'
+                },
+                {
+                    name: 'Sara Neri',
+                    telephoneNumber: '333-5566778',
+                    emailAdress: 'sara.neri@email.com'
+                },
+            ]
+        }
+    },
 }
 </script>
 <style lang="scss" scoped>
