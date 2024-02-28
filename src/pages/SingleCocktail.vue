@@ -4,17 +4,17 @@
             <!-- <h1>
                 Single cocktail: {{ $route.params.id }}
             </h1> -->
-            <OneCocktail class="p-0 col-12 mx-4 my-5" :title="cocktail.title" :image="cocktail.cocktail_image" :description="cocktail.description" :fullLength="true"
+            <SingleCard class="p-0 col-12 mx-4 my-5" :title="cocktail.title" :cocktail_image="cocktail.cocktail_image" :description="cocktail.description" :fullLength="true"
             />
         </section>
     </main>
 </template>
 <script>
-import OneCocktail from '@/components/OneCocktail.vue';
+import SingleCard from '@/components/SingleCard.vue';
 import axios from 'axios';
 
 export default {
-    name: 'cocktailList',
+    name: 'SingleCocktail',
     data(){
         return{
             cocktail: {},
@@ -39,7 +39,7 @@ export default {
         }
     },
     components:{
-        OneCocktail
+        SingleCard
     },
 
     created(){

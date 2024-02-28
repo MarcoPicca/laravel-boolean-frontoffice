@@ -6,14 +6,14 @@
                     Cocktails:
                 </h1>
             </div>
-            <OneCocktail class="card p-0 col-3 mx-4 my-5" v-for="cocktail in cocktails" :key="cocktail"
-                :title="cocktail.title" :cocktail_image="cocktail.cocktail_image" :description="cocktail.description" :linkRoute="{ name: 'single-cocktail', params: { id: cocktail }}" linkLabel="Read more..."
+            <SingleCard class="card p-0 col-3 mx-4 my-5" v-for="cocktail in cocktails" :key="cocktail"
+                :title="cocktail.title" :cocktail_image="cocktail.cocktail_image" :description="cocktail.description" :linkRoute="{ name: 'single-cocktail', params: { id: cocktail.id }}" linkLabel="Read more..."
             />
         </section>
     </main>
 </template>
 <script>
-import OneCocktail from '@/components/OneCocktail.vue';
+import SingleCard from '@/components/SingleCard.vue';
 import axios from 'axios';
 
 export default {
@@ -41,7 +41,7 @@ export default {
         }
     },
     components:{
-        OneCocktail
+        SingleCard
     },
 
     created(){

@@ -38,10 +38,10 @@ export default {
         },
         description: {
             required: true,
-            type: Text,
+            type: String,
         },
         cocktail_image: {
-            required: false,
+            required: true,
             type: String,
         },
         linkRoute: {
